@@ -1,35 +1,47 @@
 ## For the impatient
 
-1. Make sure you hava clang-3.7 or superior.
-[Installation script for Debian Jessie]
+### Install Scala Native
 
-2. Make sure you install ``libgc-dev``.
+Make sure you hava clang-3.7 or superior. See: [Installation script for Debian Jessie]
+
+Make sure you install ``libgc-dev``.
 ```bash
     $ sudo apt-get install libgc-dev -y
 ```
 
-3. Clone
 ```bash
     $ mkdir -p $HOME/workspace
     $ cd $HOME/workspace
     $ git clone https://github.com/scala-native/scala-native.git
 ```
 
-3. Building
 ```bash
     $ cd $HOME/workspace/scala-native
     $ sbt clean publishLocal
 ```
 
-4. In case it fails, try ``sbt publishLocal`` again. This is common in case your .ivy2 repository is empty or never had scala-native artifacts published onto it.
+In case it fails, try ``sbt publishLocal`` again. This is common in case your .ivy2 repository is empty or never had scala-native artifacts published onto it.
 
-5. Run the demo program
-**NOTE: latest pull from master caused regression. IT WILL FAIL!**
+
+### Run this demo application
+
 ```bash
-    $ sbt demoNative/run
+    $ mkdir -p $HOME/workspace
+    $ cd $HOME/workspace
+    $ git clone https://github.com/frgomes/poc-scala-native.git
 ```
 
-6. Show results of the demo program
+```bash
+    $ cd $HOME/workspace/poc-scala-native
+    $ sbt clean package
+```
+
+**NOTE: regression in master of Scala Native. IT'S GOING TO FAIL HERE TOO!**
+
+```bash
+    $ sbt run
+```
+
 ```bash
     $ sudo apt-get install xdg-utils
     $ xdg-open image0.ppm
