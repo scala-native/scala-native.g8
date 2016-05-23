@@ -13,10 +13,19 @@ Make sure you install ``libgc-dev``.
     $ mkdir -p $HOME/workspace
     $ cd $HOME/workspace
     $ git clone https://github.com/scala-native/scala-native.git
+	$ cd $HOME/workspace/scala-native
 ```
-
+Make sure you disable generatio of documentation in ``build.sbt``:
+```scala
+lazy val baseSettings = Seq(
+  organization := "org.scala-native",
+  version      := nativeVersion,
+  sources in doc in Compile := List(),
+  scalafmtConfig := Some(file(".scalafmt"))
+)
+```
+Now you can build it:
 ```bash
-    $ cd $HOME/workspace/scala-native
     $ sbt clean publishLocal
 ```
 
