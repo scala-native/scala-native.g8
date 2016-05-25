@@ -17,7 +17,7 @@ Downloading...
     $ cd $HOME/workspace/scala-native
 ```
 
-Change ``build.sbt`` adding ``sources in doc in Compile := List()`` as shown below:
+Make sure you disable generation of documentation in ``build.sbt``:
 ```scala
 lazy val baseSettings = Seq(
   organization := "org.scala-native",
