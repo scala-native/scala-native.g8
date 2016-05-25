@@ -2,7 +2,7 @@
 
 ### Install Scala Native
 
-Make sure you hava clang-3.7 or superior. See: [Installation script for Debian Jessie]
+Make sure you have clang-3.7 or superior. See: [Installation script for Debian Jessie]
 
 Make sure you install ``libgc-dev``.
 ```bash
