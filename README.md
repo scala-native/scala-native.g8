@@ -9,29 +9,35 @@ Make sure you install ``libgc-dev``.
     $ sudo apt-get install libgc-dev -y
 ```
 
+Downloading...
 ```bash
     $ mkdir -p $HOME/workspace
     $ cd $HOME/workspace
     $ git clone https://github.com/scala-native/scala-native.git
-```
-
-```bash
     $ cd $HOME/workspace/scala-native
-    $ sbt clean publishLocal
 ```
 
-In case it fails, try ``sbt publishLocal`` again. This is common in case your .ivy2 repository is empty or never had scala-native artifacts published onto it.
+Change ``build.sbt`` adding ``sources in doc in Compile := List()`` as shown below:
+```scala
+lazy val baseSettings = Seq(
+  organization := "org.scala-native",
+  version      := nativeVersion,
+  sources in doc in Compile := List(),
+  scalafmtConfig := Some(file(".scalafmt"))
+)
+```
 
+Clean your Ivy repository and proceed with the build:
+```bash
+    $ rm -r -f $HOME/.ivy2/local/org.scala-native
+    $ sbt clean rtlib/publishLocal nscplugin/publishLocal publishLocal
+```
 
-### Run this demo application
-
+### Building this demo application
 ```bash
     $ mkdir -p $HOME/workspace
     $ cd $HOME/workspace
     $ git clone https://github.com/frgomes/poc-scala-native.git
-```
-
-```bash
     $ cd $HOME/workspace/poc-scala-native
     $ sbt clean package
 ```
@@ -42,6 +48,7 @@ In case it fails, try ``sbt publishLocal`` again. This is common in case your .i
     $ sbt run
 ```
 
+See the image produced:
 ```bash
     $ sudo apt-get install xdg-utils
     $ xdg-open image0.ppm
