@@ -73,7 +73,9 @@ Scala Native is pretty much Scala (as explained above), but able to generate _na
 
 #### Which target platforms are supported?
 
-Scala Native employs something called LLVM, which does the job of generating the binary code for a given platform. So, the answer is, in principle: all platforms supported by [LLVM].
+Short answer: OSX and Linux.
+
+Long answer: Scala Native employs something called [LLVM], which does the job of generating the binary code for a given platform. So, the answer is, in principle: all platforms supported by LLVM. In reality, supporting a platform involves other aspects too, not simply delegating the task to LLVM. So, stay tunned to [Scala Native] in this regard.
 
 #### Can I write code in Scala Native which is able to run in a browser?
 
@@ -91,7 +93,11 @@ It depends. If you are interested in binary portability across platforms, the an
 
 #### What a system language is?
 
-It basically means that you are able to write system software, such as native libraries, like .DLLs, .LIBs, .EXEs for the Windows platforms, or their counterparts for other platforms. In other words, a system language generates _native code_, able to run straight onto the "bare metal".
+It basically means that you are able to write system software, such as native libraries and other executable binaries targetting specific platforms. In other words, a system language generates _native code_, able to run straight onto the "bare metal". You can even write an operating system with a system language or a combination of system languages.
+
+#### Can I link Scala Native code with binaries from other languages?
+
+At the time of this writing, Scala Native allows linking with C. Work is in progress in order to allow other programming languages. There are annotations which are intended to inform the linker about the foreign language symbol to be associated to variables and functions of your Scala Native code.
 
 #### Does Scala Native with AOT performs better than Scala with JIT?
 
