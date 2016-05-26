@@ -77,13 +77,13 @@ Scala Native employs something called LLVM, which does the job of generating the
 
 #### Can I write code in Scala Native which is able to run in a browser?
 
-You can use [ScalaJS] for that. ScalaJS pretty much Scala (as explained above), but able to generate JavaScript, instead of generating _bytecode_ for JVM. Using ScalaJS (and not Scala Native!), you can write code in Scala and generate JavaScript which the browser is able to understand.
+You can use [ScalaJS] for that. ScalaJS is pretty much Scala (as explained above), but able to generate JavaScript, instead of generating _bytecode_ for the JVM. Using ScalaJS (and not Scala Native!), you can write code in Scala and generate JavaScript which the browser is able to understand.
 
 #### Scala Native employs AOT and not JIT... OK, what does it mean?
 
 The Scala Native compiler generates _native code_ for the _target platform_ and optimizes the code _ahead of time_ (AOT) of the execution of your program.
 
-In contrast, Scala generates _bytecode_ for a _virtual machine_ and optimizes the code _just in time_ (JIT) with the execution of your program.
+In contrast, Scala generates _bytecode_ for a _virtual machine_ and optimizes the code _just in time_ (JIT) with the execution of your program. In other words, the JIT compiler transforms _bytecode_ onto _native code_ behind the scenes, whilst your program is executing.
 
 #### Should I use Scala with JIT or Scala Native with AOT?
 
@@ -93,9 +93,21 @@ It depends. If you are interested in binary portability across platforms, the an
 
 It basically means that you are able to write system software, such as native libraries, like .DLLs, .LIBs, .EXEs for the Windows platforms, or their counterparts for other platforms. In other words, a system language generates _native code_, able to run straight onto the "bare metal".
 
+#### Does Scala Native with AOT performs better than Scala with JIT?
+
+In regards to startup times, the answer is clearly _yes!_. In regards to other aspects, it's a bit early to tell.
+
+The subjects "performance" and "benchmarks" involve several aspects which may behave in different ways, depending on the way these aspects are put together.
+
 #### So, I do not need the JVM anymore, right?
 
-Hum.... not really. You still need SBT in order to build Scala Native and _this_ project. And SBT needs the JVM. But you don't need the JVM on the target platform.
+Hum.... not really. You still need [SBT] in order to build Scala Native and _this_ project. And SBT needs the JVM. But you don't need the JVM on the target platform.
+
+#### Will I be free of the JVM someday?
+
+When [SBT] gets compiled with Scala Native. This is possibly a difficult task, which will take a while to happen or even eventually never happens.
+
+A much more promissing alternative is another build tool called [CBT] being compiled with Scala Native. Since CBT has a much simpler code base than SBT, chances are that porting CBT to Scala Native is a relatively simple task. Since CBT is a new project, there's no ecosystem around it, which means that there's no commitment with past or risk of breaking plugins, for example.
 
 #### Do I need LLVM for running a Scala Native program?
 
@@ -109,3 +121,6 @@ Yes, at the moment... yes. Ideally, you shouldn't.
 [Scala]: http://scala-lang.org
 [ScalaJS]: http://scala-js.org
 [Scala Native]: http://scala-native.org
+[SBT]: http://scala-sbt.org
+[CBT]: https://github.com/cvogt/cbt
+
