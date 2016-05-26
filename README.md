@@ -117,7 +117,7 @@ A much more promissing alternative is another build tool called [CBT] being comp
 
 #### Do I need LLVM for running a Scala Native program?
 
-Yes, at the moment... yes. Ideally, you shouldn't.
+At the moment... yes. Ideally, you shouldn't. This possibly will happen along the way, as Scala Native matures.
 
 
 
