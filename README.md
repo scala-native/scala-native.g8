@@ -20,11 +20,14 @@ For an introduction for the completely newbie on the subject, please find the FA
 You can install LLVM and Clang from their APT repository:
 * [Installation script for Debian Jessie]
 
-In case the LLVM APT repository is down, you can install LLVM and Clang from sources. Observe that the installation of LLVM requires CMake version 3.4.2 or superior.
+In case the LLVM APT repository is down, you have two choices:
 
-* [Installing CMake from sources]
-* [Installing LLVM and Clang from sources]
+* Install pre-built binaries from LLVM website for your platform
+    * Under section "Download LLVM 3.8.0", look for section [Pre-Build Binaries] 
 
+* Build from sources
+    * [Installing CMake from sources]
+    * [Installing LLVM and Clang from sources]
 
 #### Installing libgc-dev
 ```bash
@@ -136,15 +139,13 @@ A much more promissing alternative is another build tool called [CBT] being comp
 
 At the moment... yes. Ideally, you shouldn't. This possibly will happen along the way, as Scala Native matures.
 
-
-
-
-[installation script for Debian Jessie]: https://gist.github.com/frgomes/daa33b2f7a6489196a95
-[Installing CMake from sources]: http://gist.github.com/frgomes/d803ddaa3b124bb5abf32ba6cad8f3b8
-[Installing LLVM and Clang from sources]: http://gist.github.com/frgomes/bb7426e70d118d06d7d30338cbdb1fe8
 [LLVM]: http://llvm.org
 [Scala]: http://scala-lang.org
 [ScalaJS]: http://scala-js.org
 [Scala Native]: http://scala-native.org
 [SBT]: http://scala-sbt.org
 [CBT]: https://github.com/cvogt/cbt
+[installation script for Debian Jessie]: https://gist.github.com/frgomes/daa33b2f7a6489196a95
+[Installing CMake from sources]: http://gist.github.com/frgomes/d803ddaa3b124bb5abf32ba6cad8f3b8
+[Installing LLVM and Clang from sources]: http://gist.github.com/frgomes/bb7426e70d118d06d7d30338cbdb1fe8
+[Pre-Build Binaries]: http://llvm.org/releases/download.html#3.8.0
