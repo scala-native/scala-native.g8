@@ -25,14 +25,15 @@ In case the LLVM APT repository is down, you have two choices:
 * Install pre-built binaries from LLVM website for your platform
     * Under section "Download LLVM 3.8.0", look for section [Pre-Build Binaries]
 
-
-    # ---- This is an example on how you can install and use pre-built binaries ----
+<pre>
+    # This is an example on how you can install the pre-built binaries
     $ mkdir -p $HOME/Downloads && cd $HOME/Downloads
     $ wget http://llvm.org/releases/3.8.0/clang+llvm-3.8.0-x86_64-linux-gnu-debian8.tar.xz
     $ mkdir -p $HOME/tools/developer && cd $HOME/tools/developer
     $ tar xpf $HOME/Downloads/clang+llvm-3.8.0-x86_64-linux-gnu-debian8.tar.xz
     $ export PATH=$HOME/tools/developer/clang+llvm-3.8.0-x86_64-linux-gnu-debian8/bin:$PATH
     $ hash -r
+</pre>
 
 * Build from sources (provided without any promisse of success... you are warned!)
     * [Installing CMake from sources]
