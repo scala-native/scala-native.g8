@@ -82,7 +82,8 @@ Clean your Ivy repository and proceed with the build:
 **NOTE: REGRESSION ON LINUX!!!** This is a known bug, still pending at the moment. :-(
 
 ```bash
-$ sbt root/run
+$ sbt example/run
+
 [info] Loading global plugins from /home/rgomes/.sbt/0.13/plugins
 [info] Loading project definition from /home/rgomes/workspace/poc-scala-native/project
 [info] Set current project to poc-scala-native (in build file:/home/rgomes/workspace/poc-scala-native/)

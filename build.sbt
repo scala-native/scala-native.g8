@@ -30,7 +30,7 @@ lazy val disableDocs: Seq[Setting[_]] =
       sources in doc in Compile := List())
 
 
-lazy val root =
+lazy val example =
   project.in(file("example"))
     .settings(platform)
     .settings(libSettings)
