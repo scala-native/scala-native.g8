@@ -78,13 +78,32 @@ Clean your Ivy repository and proceed with the build:
     $ sbt clean package
 ```
 
-**NOTE: regression in master of Scala Native. IT'S GOING TO FAIL HERE TOO!**
+**NOTE: REGRESSION ON LINUX!!!** This is a known bug, still pending at the moment. :-(
 
 ```bash
-    $ sbt run
+$ sbt root/run
+[info] Loading global plugins from /home/rgomes/.sbt/0.13/plugins
+[info] Loading project definition from /home/rgomes/workspace/poc-scala-native/project
+[info] Set current project to poc-scala-native (in build file:/home/rgomes/workspace/poc-scala-native/)
+warning: overriding the module target triple with x86_64-unknown-linux-gnu [-Woverride-module]
+1 warning generated.
+/tmp/root-out-40e8eb.o: In function `demo.Main$::main_class.ssnr.ObjectArray_unit':
+/home/rgomes/workspace/poc-scala-native/example/target/scala-2.11/root-out.ll:(.text+0x1447): undefined reference to `__stderrp'
+clang-3.8: error: linker command failed with exit code 1 (use -v to see invocation)
+java.io.IOException: Cannot run program "/home/rgomes/workspace/poc-scala-native/example/target/scala-2.11/root-out": error=2, No such file or directory
+        at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+Caused by: java.io.IOException: error=2, No such file or directory
+        at java.lang.UNIXProcess.forkAndExec(Native Method)
+        at java.lang.UNIXProcess.<init>(UNIXProcess.java:248)
+        at java.lang.ProcessImpl.start(ProcessImpl.java:134)
+        at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+[trace] Stack trace suppressed: run last root/*:run for the full output.
+[error] (root/*:run) java.io.IOException: Cannot run program "/home/rgomes/workspace/poc-scala-native/example/target/scala-2.11/root-out": error=2, No such file or directory
+[error] Total time: 2 s, completed 07-Jun-2016 22:41:50
 ```
 
-See the image produced:
+
+See the image produced: (**PENDING**: Support for Linux is still pending!)
 ```bash
     $ sudo apt-get install xdg-utils
     $ xdg-open image0.ppm
