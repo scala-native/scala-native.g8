@@ -11,21 +11,24 @@ For an introduction for the completely newbie on the subject, please find the FA
 
 #### This is what you will be doing, in a nutshell:
 
-* installation of LLVM and Clang
+* installation of LLVM and Clang (if needed!)
 * installation of libgc-dev
-* installing (*patching!*) and building Scala Native
+* installing, (*patching!*) and building Scala Native
 * building *this* project
 * run a demo application compiled by Scala Native
 
 #### Installing LLVM and CLang
 
+**NOTE:** If you already have LLVM >= 3.7 and Clang >= 3.7 installed in your system, you probably can skip to the next section.
+
 You can install LLVM and Clang from their APT repository:
 * [Installation script for Debian Jessie]
 
-In case the LLVM APT repository is down, you have two choices:
+In case the LLVM APT repository is down, please install from pre-built binaries:
 
-* Install pre-built binaries from LLVM website for your platform
-    * Under section "Download LLVM 3.8.0", look for section [Pre-Build Binaries]
+* Under section "Download LLVM 3.8.0", look for section [Pre-Build Binaries]
+
+**This is an example on how you can install the pre-built binaries:**
 
 <pre>
     # This is an example on how you can install the pre-built binaries
@@ -37,16 +40,13 @@ In case the LLVM APT repository is down, you have two choices:
     $ hash -r
 </pre>
 
-* Build from sources (provided without any promisse of success... you are warned!)
-    * [Installing CMake from sources]
-    * [Installing LLVM and Clang from sources]
 
 #### Installing libgc-dev
 ```bash
     $ sudo apt-get install libgc-dev -y
 ```
 
-#### Installing *patching!* and building Scala Native
+#### Installing, *patching!* and building Scala Native
 
 Downloading...
 ```bash
