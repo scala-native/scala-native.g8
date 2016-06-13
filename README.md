@@ -9,11 +9,13 @@ For an introduction for the completely newbie on the subject, please find the FA
 
 ### Install Scala Native
 
-#### Requirements
+#### This is what you will be doing, in a nutshell:
 
-* LLVM >= 3.7
-* Clang >= 3.7
-* libgc-dev
+* installation of LLVM and Clang
+* installation of libgc-dev
+* installing (*patching!*) and building Scala Native
+* building *this* project
+* run a demo application compiled by Scala Native
 
 #### Installing LLVM and CLang
 
@@ -44,7 +46,7 @@ In case the LLVM APT repository is down, you have two choices:
     $ sudo apt-get install libgc-dev -y
 ```
 
-#### Installing Scala Native
+#### Installing *patching!* and building Scala Native
 
 Downloading...
 ```bash
@@ -77,7 +79,7 @@ Clean your Ivy repository and proceed with the build:
     $ sbt clean rtlib/publishLocal nscplugin/publishLocal publishLocal
 ```
 
-### Building this demo application
+### Building this demo application with Scala Native
 ```bash
     $ mkdir -p $HOME/workspace
     $ cd $HOME/workspace
@@ -86,7 +88,9 @@ Clean your Ivy repository and proceed with the build:
     $ sbt clean package
 ```
 
-See the image produced:
+
+### See the image produced
+
 ```bash
     $ sudo apt-get install xdg-utils
     $ xdg-open image0.ppm
