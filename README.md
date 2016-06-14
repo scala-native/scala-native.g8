@@ -153,7 +153,14 @@ A much more promissing alternative is another build tool called [CBT] being comp
 
 #### Do I need LLVM for running a Scala Native program?
 
-At the moment... yes. Ideally, you shouldn't. This possibly will happen along the way, as Scala Native matures.
+Short answer: yes
+
+Long answer: yes and no.
+
+At the moment, the native executable is produced the first time you do ``sbt run``, which requires LLVM in order to produce a native executable file from intermediate binary files.
+
+In the case of *this* project, when you do ``sbt example/run``, it creates an executabe at ``example/target/scala-2.11/example-out``. In future this restriction will be lifted and it will be possible to generate a native executable without necessarily having to run it.
+
 
 [LLVM]: http://llvm.org
 [Scala]: http://scala-lang.org

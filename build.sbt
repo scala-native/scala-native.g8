@@ -37,4 +37,4 @@ lazy val example =
     .settings(disableDocs)
     .settings(
       nativeVerbose := true,
-      nativeClangOptions := Seq("-O2"))
+      nativeClangOptions ++= Seq("-O2"))
