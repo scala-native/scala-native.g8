@@ -13,9 +13,9 @@ For an introduction for the completely newbie on the subject, please find the FA
 
 * installation of LLVM and Clang (if needed!)
 * installation of libgc-dev
-* installing, (*patching!*) and building Scala Native
-* building *this* project
-* run a demo application compiled by Scala Native
+* building and installing Scala Native
+* building *this* project with Scala Native
+* run the example application and see the output generated
 
 #### Installing LLVM and CLang
 
@@ -46,7 +46,7 @@ In case the LLVM APT repository is down, please install from pre-built binaries:
     $ sudo apt-get install libgc-dev -y
 ```
 
-#### Installing, *patching!* and building Scala Native
+#### Building and installing Scala Native
 
 Downloading...
 ```bash
@@ -66,20 +66,13 @@ lazy val baseSettings = Seq(
 )
 ```
 
-**IMPORTANT** (Linux platforms): you have to apply the following fix below:
-
-```bash
-    $ cd $HOME/workspace/poc-scala-native
-    $ sed -i 's|__stdoutp|stdout|;s|__stderrp|stderr|' clib/src/main/scala/scala/scalanative/libc/stdlib.scala
-```
-
 Clean your Ivy repository and proceed with the build:
 ```bash
     $ rm -r -f $HOME/.ivy2/local/org.scala-native
     $ sbt clean rtlib/publishLocal nscplugin/publishLocal publishLocal
 ```
 
-### Building this demo application with Scala Native
+### Building *this* project with Scala Native
 ```bash
     $ mkdir -p $HOME/workspace
     $ cd $HOME/workspace
@@ -89,8 +82,14 @@ Clean your Ivy repository and proceed with the build:
 ```
 
 
-### See the image produced
+### Run the example application and see the output generated
 
+Run the example application
+```bash
+    $ sbt example/run
+```
+
+Install xdg-open, which will help you open the generated image, like shown below:
 ```bash
     $ sudo apt-get install xdg-utils
     $ xdg-open image0.ppm
