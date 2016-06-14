@@ -43,7 +43,7 @@ In case the LLVM APT repository is down, please install from pre-built binaries:
 
 #### Installing libgc-dev
 ```bash
-    $ sudo apt-get install libgc-dev -y
+    $ sudo apt-get install libgc-dev -y --force-yes
 ```
 
 #### Building and installing Scala Native
