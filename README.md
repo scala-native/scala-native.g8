@@ -7,9 +7,7 @@ For an introduction for the completely newbie on the subject, please find the FA
 
 ## For the impatient
 
-### Install Scala Native
-
-#### This is what you will be doing, in a nutshell:
+This is what you will be doing, in a nutshell:
 
 * installation of LLVM and Clang (if needed!)
 * installation of libgc-dev
@@ -72,7 +70,7 @@ Clean your Ivy repository and proceed with the build:
     $ sbt clean rtlib/publishLocal nscplugin/publishLocal publishLocal
 ```
 
-### Building *this* project with Scala Native
+#### Building *this* project with Scala Native
 ```bash
     $ mkdir -p $HOME/workspace
     $ cd $HOME/workspace
@@ -82,7 +80,7 @@ Clean your Ivy repository and proceed with the build:
 ```
 
 
-### Run the example application and see the output generated
+#### Run the example application and see the output generated
 
 Run the example application
 ```bash
