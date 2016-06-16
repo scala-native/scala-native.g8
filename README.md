@@ -115,7 +115,7 @@ Long answer: Scala Native employs something called [LLVM], which does the job of
 
 #### Can I write code in Scala Native which is able to run in a browser?
 
-You can use [ScalaJS] for that. ScalaJS is pretty much Scala (as explained above), but able to generate JavaScript, instead of generating _bytecode_ for the JVM. Using ScalaJS (and not Scala Native!), you can write code in Scala and generate JavaScript which the browser is able to understand.
+You can use [ScalaJS] for that. ScalaJS is pretty much Scala (as explained above), but able to generate JavaScript, instead of generating _bytecode_ for the JVM. Using ScalaJS (and not Scala Native!), you can write code in Scala and generate JavaScript which a browser is able to understand.
 
 #### Scala Native employs AOT and not JIT... OK, what does it mean?
 
@@ -125,7 +125,7 @@ In contrast, Scala generates _bytecode_ for a _virtual machine_ and optimizes th
 
 #### Should I use Scala with JIT or Scala Native with AOT?
 
-It depends. If you are interested in binary portability across platforms, the answer is Scala with JIT. If you need fast startup times, or get rid of the JVM, or integrating system languages... the answer is Scala Native. If you are interested on writing code to run in the browser, the answer is ScalaJS.
+It depends. If you are interested in binary portability across platforms, the answer is Scala with JIT. If you need fast startup times, or get rid of the JVM, or integrating system languages... the answer is Scala Native. If you are interested on writing code to run in a browser, the answer is ScalaJS.
 
 #### What a system language is?
 
@@ -153,7 +153,7 @@ A much more promissing alternative is another build tool called [CBT] being comp
 
 #### Do I need LLVM for running a Scala Native program?
 
-No. In the tutorial above you ran ``sbt example/run``, which creates an executable and immediately launches it. But you could have employed the command ``sbt example/nativeLink`` instead, which just creates the executable, without runnint it, as shown below:
+No. In the tutorial above you ran ``sbt example/run``, which creates an executable and immediately launches it. But you could have employed the command ``sbt example/nativeLink`` instead, which just creates the executable, without running it, as shown below:
 ```bash
     $ sbt example/nativeLink
     $ ls -al example/target/scala-2.11/example-out
