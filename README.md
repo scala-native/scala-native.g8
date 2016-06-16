@@ -158,7 +158,7 @@ No. In the tutorial above you ran ``sbt example/run``, which creates an executab
     $ sbt example/nativeLink
     $ ls -al example/target/scala-2.11/example-out
     $ example/target/scala-2.11/example-out
-    $ sdg-open image0.ppm
+    $ xdg-open image0.ppm
 ```
 This way, you can deploy only the executable to the target platform, and nothing else.
 
