@@ -13,7 +13,7 @@ This is what you will be doing, in a nutshell:
 * installation of libgc-dev
 * building and installing Scala Native
 * building *this* project with Scala Native
-* run the example application and see the output generated
+* run *this* application and see the output generated
 
 #### Installing LLVM and CLang
 
@@ -80,7 +80,7 @@ Clean your Ivy repository and proceed with the build:
 ```
 
 
-#### Run the example application and see the output generated
+#### Run *this* application and see the output generated
 
 Run the example application
 ```bash
@@ -92,6 +92,12 @@ Install xdg-open, which will help you open the generated image, like shown below
     $ sudo apt-get install xdg-utils
     $ xdg-open image0.ppm
 ```
+
+## Troubleshooting
+
+These are well known solutions for some problems observed:
+
+* In case the build fails, try to disable ``sbt-coursier`` plugin globally, in case you are using it.
 
 
 
