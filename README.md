@@ -1,6 +1,6 @@
 ## Overview
 
-This project intends to serve as a template for projects employing [Scala Native].
+This project is an example of how you can employ [Scala Native] on your next project.
 
 For an introduction for the completely newbie on the subject, please find the FAQ down below.
 
