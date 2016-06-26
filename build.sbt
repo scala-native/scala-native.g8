@@ -14,7 +14,6 @@ lazy val platform: Seq[Setting[_]] =
       compilerPlugin("org.scala-native" %  "tools_2.10" % "0.1-SNAPSHOT"),
       compilerPlugin("org.scala-native" %  "nir_2.10"   % "0.1-SNAPSHOT"),
       compilerPlugin("org.scala-native" %  "util_2.10"  % "0.1-SNAPSHOT"),
-                     "org.scala-native" %% "clib"       % "0.1-SNAPSHOT",
                      "org.scala-native" %% "javalib"    % "0.1-SNAPSHOT",
                      "org.scala-native" %% "scalalib"   % "0.1-SNAPSHOT"
     ))

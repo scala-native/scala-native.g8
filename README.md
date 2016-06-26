@@ -59,7 +59,7 @@ Make sure you disable generation of documentation in ``build.sbt``:
 lazy val baseSettings = Seq(
   organization := "org.scala-native",
   version      := nativeVersion,
-  sources in doc in Compile := List(),
+  sources in doc in Compile := List(), // doc generation currently broken
   scalafmtConfig := Some(file(".scalafmt"))
 )
 ```
