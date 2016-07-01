@@ -1,3 +1,4 @@
+import scala.scalanative.sbtplugin.ScalaNativePlugin
 
 name := "example"
 
@@ -7,16 +8,10 @@ sources in doc in Compile := List()
 
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-libraryDependencies ++= Seq(
-  compilerPlugin("org.scala-native" %  "tools_2.10" % "0.1-SNAPSHOT"),
-  compilerPlugin("org.scala-native" %  "nir_2.10"   % "0.1-SNAPSHOT"),
-  compilerPlugin("org.scala-native" %  "util_2.10"  % "0.1-SNAPSHOT"),
-                 "org.scala-native" %% "javalib"    % "0.1-SNAPSHOT",
-                 "org.scala-native" %% "scalalib"   % "0.1-SNAPSHOT",
-                 "org.scala-native" %% "nativelib"  % "0.1-SNAPSHOT"
-)
+libraryDependencies ++=
+  ScalaNativePlugin.runtimeDependencies
 
-scala.scalanative.sbtplugin.ScalaNativePlugin.projectSettings
+ScalaNativePlugin.projectSettings
 
 nativeVerbose := true
 
