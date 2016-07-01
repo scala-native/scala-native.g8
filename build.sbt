@@ -1,39 +1,20 @@
-import scala.io.Source
-import scala.scalanative.sbtplugin.{ScalaNativePlugin, ScalaNativePluginInternal}
-import ScalaNativePlugin.autoImport._
+import scala.scalanative.sbtplugin.ScalaNativePlugin
 
-autoCompilerPlugins := true
+name := "example"
 
-val toolScalaVersion = "2.10.6"
+scalaVersion := "2.11.8"
 
-val libScalaVersion  = "2.11.8"
+sources in doc in Compile := List()
 
-lazy val platform: Seq[Setting[_]] =
-  Seq(
-    libraryDependencies ++= Seq(
-      compilerPlugin("org.scala-native" %  "tools_2.10" % "0.1-SNAPSHOT"),
-      compilerPlugin("org.scala-native" %  "nir_2.10"   % "0.1-SNAPSHOT"),
-      compilerPlugin("org.scala-native" %  "util_2.10"  % "0.1-SNAPSHOT"),
-                     "org.scala-native" %% "javalib"    % "0.1-SNAPSHOT",
-                     "org.scala-native" %% "scalalib"   % "0.1-SNAPSHOT"
-    ))
+resolvers += Resolver.sonatypeRepo("snapshots")
 
-lazy val libSettings: Seq[Setting[_]] =
-  ScalaNativePlugin.projectSettings ++
-    Seq(
-      scalaVersion := libScalaVersion)
-      //TODO: nativeEmitDependencyGraphPath := Some(file("out.dot")))
+libraryDependencies ++=
+  ScalaNativePlugin.runtimeDependencies
 
-lazy val disableDocs: Seq[Setting[_]] =
-  Seq(
-      sources in doc in Compile := List())
+ScalaNativePlugin.projectSettings
 
+nativeVerbose := true
 
-lazy val example =
-  project.in(file("example"))
-    .settings(platform)
-    .settings(libSettings)
-    .settings(disableDocs)
-    .settings(
-      nativeVerbose := true,
-      nativeClangOptions ++= Seq("-O2"))
+nativeClangOptions ++= Seq("-O2")
+
+//nativeEmitDependencyGraphPath := Some(file("out.dot")))
