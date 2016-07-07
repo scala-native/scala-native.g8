@@ -11,8 +11,6 @@ This is what you will be doing, in a nutshell:
 
 * installation of LLVM and Clang (if needed!)
 * installation of libgc-dev
-* building and installing Scala Native
-* building *this* project with Scala Native
 * run *this* application and see the output generated
 
 #### Installing LLVM and CLang
@@ -44,6 +42,32 @@ In case the LLVM APT repository is down, please install from pre-built binaries:
     $ sudo apt-get install libgc-dev -y --force-yes
 ```
 
+#### Run *this* application and see the output generated
+
+Run the example application
+```bash
+    $ sbt run
+```
+
+Install xdg-open, which will help you open the generated image, like shown below:
+```bash
+    $ sudo apt-get install xdg-utils
+    $ xdg-open image0.ppm
+```
+
+
+## Troubleshooting
+
+Some problems observed and well known solutions:
+
+* In case the build fails, and you are using ``sbt-coursier`` plugin, try to remove its cache at ``$HOME/.coursier`` or try to remove the plugin from the SBT configuration.
+
+
+## For advanced users only
+
+If your application needs features only available in most recent Scala Native sources, not yet
+available in public Maven repositories, you will probably find the instructions below useful.
+
 #### Building and installing Scala Native
 
 Downloading...
@@ -69,36 +93,6 @@ Clean everything involving scala-native under your Ivy repository. Then proceed 
     $ find $HOME/.ivy2 -type d -name '*scala-native*' | xargs rm -r -f
     $ sbt clean rtlib/publishLocal nscplugin/publishLocal publishLocal
 ```
-
-#### Building *this* project with Scala Native
-```bash
-    $ mkdir -p $HOME/workspace
-    $ cd $HOME/workspace
-    $ git clone https://github.com/scala-native/scala-native-example
-    $ cd $HOME/workspace/scala-native-example
-    $ sbt clean package
-```
-
-
-#### Run *this* application and see the output generated
-
-Run the example application
-```bash
-    $ sbt run
-```
-
-Install xdg-open, which will help you open the generated image, like shown below:
-```bash
-    $ sudo apt-get install xdg-utils
-    $ xdg-open image0.ppm
-```
-
-## Troubleshooting
-
-These are well known solutions for some problems observed:
-
-* In case the build fails, try to disable ``sbt-coursier`` plugin globally, in case you are using it.
-
 
 
 ## FAQ
