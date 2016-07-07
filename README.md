@@ -64,9 +64,9 @@ lazy val baseSettings = Seq(
 )
 ```
 
-Clean your Ivy repository and proceed with the build:
+Clean everything involving scala-native under your Ivy repository. Then proceed with the build:
 ```bash
-    $ rm -r -f $HOME/.ivy2/local/org.scala-native
+    $ find $HOME/.ivy2 -type d -name '*scala-native*' | xargs rm -r -f
     $ sbt clean rtlib/publishLocal nscplugin/publishLocal publishLocal
 ```
 
@@ -74,8 +74,8 @@ Clean your Ivy repository and proceed with the build:
 ```bash
     $ mkdir -p $HOME/workspace
     $ cd $HOME/workspace
-    $ git clone https://github.com/frgomes/poc-scala-native.git
-    $ cd $HOME/workspace/poc-scala-native
+    $ git clone https://github.com/scala-native/scala-native-example
+    $ cd $HOME/workspace/scala-native-example
     $ sbt clean package
 ```
 
@@ -84,7 +84,7 @@ Clean your Ivy repository and proceed with the build:
 
 Run the example application
 ```bash
-    $ sbt example/run
+    $ sbt run
 ```
 
 Install xdg-open, which will help you open the generated image, like shown below:
@@ -157,11 +157,11 @@ A much more promissing alternative is another build tool called [CBT] being comp
 
 #### Do I need LLVM for running a Scala Native program?
 
-No. In the tutorial above you ran ``sbt example/run``, which creates an executable and immediately launches it. But you could have employed the command ``sbt example/nativeLink`` instead, which just creates the executable, without running it, as shown below:
+No. In the tutorial above you ran ``sbt run``, which creates an executable and immediately launches it. But you could have employed the command ``sbt nativeLink`` instead, which just creates the executable, without running it, as shown below:
 ```bash
-    $ sbt example/nativeLink
-    $ ls -al example/target/scala-2.11/example-out
-    $ example/target/scala-2.11/example-out
+    $ sbt nativeLink
+    $ ls target/scala-2.11/scala-native-example-out
+    $ target/scala-2.11/scala-native-example-out
     $ xdg-open image0.ppm
 ```
 This way, you can deploy only the executable to the target platform, and nothing else.
