@@ -11,8 +11,6 @@ This is what you will be doing, in a nutshell:
 
 * installation of LLVM and Clang (if needed!)
 * installation of libgc-dev
-* building and installing Scala Native
-* building *this* project with Scala Native
 * run *this* application and see the output generated
 
 #### Installing LLVM and CLang
@@ -43,42 +41,6 @@ In case the LLVM APT repository is down, please install from pre-built binaries:
 ```bash
     $ sudo apt-get install libgc-dev -y --force-yes
 ```
-
-#### Building and installing Scala Native
-
-Downloading...
-```bash
-    $ mkdir -p $HOME/workspace
-    $ cd $HOME/workspace
-    $ git clone https://github.com/scala-native/scala-native.git
-    $ cd $HOME/workspace/scala-native
-```
-
-Make sure you disable generation of documentation in ``build.sbt``:
-```scala
-lazy val baseSettings = Seq(
-  organization := "org.scala-native",
-  version      := nativeVersion,
-  sources in doc in Compile := List(), // doc generation currently broken
-  scalafmtConfig := Some(file(".scalafmt"))
-)
-```
-
-Clean your Ivy repository and proceed with the build:
-```bash
-    $ rm -r -f $HOME/.ivy2/local/org.scala-native
-    $ sbt clean rtlib/publishLocal nscplugin/publishLocal publishLocal
-```
-
-#### Building *this* project with Scala Native
-```bash
-    $ mkdir -p $HOME/workspace
-    $ cd $HOME/workspace
-    $ git clone https://github.com/frgomes/poc-scala-native.git
-    $ cd $HOME/workspace/poc-scala-native
-    $ sbt clean package
-```
-
 
 #### Run *this* application and see the output generated
 
