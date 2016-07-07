@@ -46,7 +46,7 @@ In case the LLVM APT repository is down, please install from pre-built binaries:
 
 Run the example application
 ```bash
-    $ sbt example/run
+    $ sbt run
 ```
 
 Install xdg-open, which will help you open the generated image, like shown below:
@@ -55,12 +55,44 @@ Install xdg-open, which will help you open the generated image, like shown below
     $ xdg-open image0.ppm
 ```
 
+
 ## Troubleshooting
 
-These are well known solutions for some problems observed:
+Some problems observed and well known solutions:
 
-* In case the build fails, try to disable ``sbt-coursier`` plugin globally, in case you are using it.
+* In case the build fails, and you are using ``sbt-coursier`` plugin, try to remove its cache at ``$HOME/.coursier`` or try to remove the plugin from the SBT configuration.
 
+
+## For advanced users only
+
+If your application needs features only available in most recent Scala Native sources, not yet
+available in public Maven repositories, you will probably find the instructions below useful.
+
+#### Building and installing Scala Native
+
+Downloading...
+```bash
+    $ mkdir -p $HOME/workspace
+    $ cd $HOME/workspace
+    $ git clone https://github.com/scala-native/scala-native.git
+    $ cd $HOME/workspace/scala-native
+```
+
+Make sure you disable generation of documentation in ``build.sbt``:
+```scala
+lazy val baseSettings = Seq(
+  organization := "org.scala-native",
+  version      := nativeVersion,
+  sources in doc in Compile := List(), // doc generation currently broken
+  scalafmtConfig := Some(file(".scalafmt"))
+)
+```
+
+Clean everything involving scala-native under your Ivy repository. Then proceed with the build:
+```bash
+    $ find $HOME/.ivy2 -type d -name '*scala-native*' | xargs rm -r -f
+    $ sbt clean rtlib/publishLocal nscplugin/publishLocal publishLocal
+```
 
 
 ## FAQ
@@ -119,11 +151,11 @@ A much more promissing alternative is another build tool called [CBT] being comp
 
 #### Do I need LLVM for running a Scala Native program?
 
-No. In the tutorial above you ran ``sbt example/run``, which creates an executable and immediately launches it. But you could have employed the command ``sbt example/nativeLink`` instead, which just creates the executable, without running it, as shown below:
+No. In the tutorial above you ran ``sbt run``, which creates an executable and immediately launches it. But you could have employed the command ``sbt nativeLink`` instead, which just creates the executable, without running it, as shown below:
 ```bash
-    $ sbt example/nativeLink
-    $ ls -al example/target/scala-2.11/example-out
-    $ example/target/scala-2.11/example-out
+    $ sbt nativeLink
+    $ ls target/scala-2.11/scala-native-example-out
+    $ target/scala-2.11/scala-native-example-out
     $ xdg-open image0.ppm
 ```
 This way, you can deploy only the executable to the target platform, and nothing else.

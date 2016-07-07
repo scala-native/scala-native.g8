@@ -1,0 +1,10 @@
+#language: scala
+scala:
+  - "2.11.8"
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+script:
+  - find $HOME/.ivy2 -type d -name '*scala-native*' | xargs rm -r -f
+  - java -version
+  - sbt package nativeLink run
