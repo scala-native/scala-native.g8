@@ -111,7 +111,7 @@ Scala Native is pretty much Scala (as explained above), but able to generate _na
 
 Short answer: OSX and Linux.
 
-Long answer: Scala Native employs something called [LLVM], which does the job of generating the binary code for a given platform. So, the answer is, in principle: all platforms supported by LLVM. In reality, supporting a platform involves other aspects too, not simply delegating the task to LLVM. So, stay tunned to [Scala Native] in this regard.
+Long answer: Scala Native employs something called [LLVM], which does the job of generating the binary code for a given platform. So, the answer is, in principle: all platforms supported by LLVM. In reality, supporting a platform involves other aspects too, not simply delegating the task to LLVM. So, stay tuned to [Scala Native] in this regard.
 
 #### Can I write code in Scala Native which is able to run in a browser?
 
