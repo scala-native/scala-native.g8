@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title> · Scala Native</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="scala-native-example-docs"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../js/page.js"></script>
+<link rel="stylesheet" type="text/css" href="../lib/normalize.css/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="../lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/page.css"/>
+
+<!--
+<link rel="shortcut icon" href="../images/favicon.ico" />
+-->
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="../index.html" >
+<span class="home-icon">⌂</span>Scala Native
+</a>
+<div class="version-number">
+0.1*
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="../setup/index.html" class="active">setup/index.html</a></li>
+  <li><a href="../helloworld/index.html">helloworld/index.html</a></li>
+  <li><a href="../faq/index.html">faq/index.html</a></li>
+  <li><a href="../links/index.html">links/index.html</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="../index.html">Scala Native</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="../index.html" >
+<span class="home-icon">⌂</span>Scala Native
+</a>
+<div class="version-number">
+0.1*
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="../setup/index.html" class="active">setup/index.html</a></li>
+  <li><a href="../helloworld/index.html">helloworld/index.html</a></li>
+  <li><a href="../faq/index.html">faq/index.html</a></li>
+  <li><a href="../links/index.html">links/index.html</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="../index.html">Scala Native</a></li>
+  <li>setup/index.html</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h2><a href="#setup" name="setup" class="anchor"><span class="anchor-link"></span></a>Setup</h2>
+<p>This is what you will be doing, in a nutshell:</p>
+<ul>
+  <li>installation of LLVM and Clang (if needed!)</li>
+  <li>installation of libgc-dev</li>
+  <li>run <em>this</em> application and see the output generated</li>
+</ul>
+<h4><a href="#installing-llvm-and-clang" name="installing-llvm-and-clang" class="anchor"><span class="anchor-link"></span></a>Installing LLVM and CLang</h4>
+<p><strong>NOTE:</strong> If you already have LLVM &gt;= 3.7 and Clang &gt;= 3.7 installed in your system, you probably can skip to the next section.</p>
+<p>You can install LLVM and Clang from their APT repository:<br/>* [Installation script for Debian Jessie]</p>
+<p>In case the LLVM APT repository is down, please install from pre-built binaries:</p>
+<ul>
+  <li>Under section &ldquo;Download LLVM 3.8.0&rdquo;, look for section [Pre-Build Binaries]</li>
+</ul>
+<p><strong>This is an example on how you can install the pre-built binaries:</strong></p>
+<pre>
+    # This is an example on how you can install the pre-built binaries
+    $ mkdir -p $HOME/Downloads && cd $HOME/Downloads
+    $ wget http://llvm.org/releases/3.8.0/clang+llvm-3.8.0-x86_64-linux-gnu-debian8.tar.xz
+    $ mkdir -p $HOME/tools/developer && cd $HOME/tools/developer
+    $ tar xpf $HOME/Downloads/clang+llvm-3.8.0-x86_64-linux-gnu-debian8.tar.xz
+    $ export PATH=$HOME/tools/developer/clang+llvm-3.8.0-x86_64-linux-gnu-debian8/bin:$PATH
+    $ hash -r
+</pre>
+<h4><a href="#installing-libgc-dev" name="installing-libgc-dev" class="anchor"><span class="anchor-link"></span></a>Installing libgc-dev</h4>
+<pre class="prettyprint"><code class="language-bash">    $ sudo apt-get install libgc-dev -y --force-yes
+</code></pre>
+<h4><a href="#run-application-and-see-the-output-generated" name="run-application-and-see-the-output-generated" class="anchor"><span class="anchor-link"></span></a>Run <em>this</em> application and see the output generated</h4>
+<p>Run the example application</p>
+<pre class="prettyprint"><code class="language-bash">    $ sbt run
+</code></pre>
+<p>Install xdg-open, which will help you open the generated image, like shown below:</p>
+<pre class="prettyprint"><code class="language-bash">    $ sudo apt-get install xdg-utils
+    $ xdg-open image0.ppm
+</code></pre>
+<h2><a href="#troubleshooting" name="troubleshooting" class="anchor"><span class="anchor-link"></span></a>Troubleshooting</h2>
+<p>Some problems observed and well known solutions:</p>
+<ul>
+  <li>In case the build fails, and you are using <code>sbt-coursier</code> plugin, try to remove its cache at <code>$HOME/.coursier</code> or try to remove the plugin from the SBT configuration.</li>
+</ul>
+<h2><a href="#for-advanced-users-only" name="for-advanced-users-only" class="anchor"><span class="anchor-link"></span></a>For advanced users only</h2>
+<p>If your application needs features only available in most recent Scala Native sources, not yet<br/>available in public Maven repositories, you will probably find the instructions below useful.</p>
+<h4><a href="#building-and-installing-scala-native" name="building-and-installing-scala-native" class="anchor"><span class="anchor-link"></span></a>Building and installing Scala Native</h4>
+<p>Downloading&hellip;</p>
+<pre class="prettyprint"><code class="language-bash">    $ mkdir -p $HOME/workspace
+    $ cd $HOME/workspace
+    $ git clone https://github.com/scala-native/scala-native.git
+    $ cd $HOME/workspace/scala-native
+</code></pre>
+<p>Make sure you disable generation of documentation in <code>build.sbt</code>:</p>
+<pre class="prettyprint"><code class="language-scala">lazy val baseSettings = Seq(
+  organization := &quot;org.scala-native&quot;,
+  version      := nativeVersion,
+  sources in doc in Compile := List(), // doc generation currently broken
+  scalafmtConfig := Some(file(&quot;.scalafmt&quot;))
+)
+</code></pre>
+<p>Clean everything involving scala-native under your Ivy repository. Then proceed with the build:</p>
+<pre class="prettyprint"><code class="language-bash">    $ find $HOME/.ivy2 -type d -name &#39;*scala-native*&#39; | xargs rm -r -f
+    $ sbt clean nscplugin/publishLocal nativelib/publishLocal publishLocal
+</code></pre>
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="../helloworld/index.html">helloworld/index.html</a></p>
+</div class="nav-next">
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="../setup/index.htmlsetup/index.html">setup/index.html</a>
+  <ul>
+    <li><a href="../setup/index.html#setup">Setup</a></li>
+    <li><a href="../setup/index.html#troubleshooting">Troubleshooting</a></li>
+    <li><a href="../setup/index.html#for-advanced-users-only">For advanced users only</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+<ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2016</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="../lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="../js/magellan.js"></script>
+
+<style type="text/css">@import "../lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="../lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="../lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+
+</html>
