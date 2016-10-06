@@ -58,6 +58,7 @@ Install xdg-open, which will help you open the generated image, like shown below
     $ xdg-open image0.ppm
 ```
 
+![Ray Tracing Demo](/image0.png)
 
 ## Troubleshooting
 
