@@ -164,6 +164,67 @@ No. In the tutorial above you ran ``sbt run``, which creates an executable and i
 ```
 This way, you can deploy only the executable to the target platform, and nothing else.
 
+## Advance stuff
+
+#### Linking 3rd party libraries
+
+Scala native lets you to lib Scala code with other 3rd party native libraries (i.e. C libraries).
+
+Example shows how to link own simple arithmetic library.
+
+Assuming that you have library `arith.c` :
+
+```c
+int addition(int a,int b)
+{
+int result;
+result = a + b;
+return result;
+}
+```
+
+you need to compile it with command:
+
+`gcc -c addition.c`
+
+this will create `addition.o` file.
+
+Then you need to create `*.a` file with :
+
+`ar cr libarith.a addition.o`
+
+which will create your `libarith.a` file.
+
+Now in `scala-native-example` project, add this line in `build.sbt`
+
+`nativeClangOptions ++= Seq("-L/path_to_your_library")` which is folder where your  `libarith.a` file is (-L parameter is important).
+
+After that add link in your *.scala file :
+
+```scala
+package demo
+
+import scalanative.native._, stdlib._, stdio._
+
+object Main {
+  def main(args: Array[String]): Unit = {
+
+    fprintf(stderr, c"Hello world!\n   %d", addition.addition(1,3))  // our function call
+
+  }
+}
+
+@extern
+@link("arith")
+object addition {
+  def addition(a: CInt, b: CInt): CInt = extern
+}
+
+```
+
+you can read more about C libraries here: http://www.thegeekstuff.com/2010/08/ar-command-examples/
+
+
 
 [LLVM]: http://llvm.org
 [Scala]: http://scala-lang.org
