@@ -1,7 +1,15 @@
+language: scala
+
+jdk:
+  - oraclejdk8
+
+script:
+  - sbt test
+
 sudo: required
 
 scala:
-  - "2.11.8"
+  - "2.11.11"
 
 matrix:
   include:
@@ -46,11 +54,6 @@ matrix:
         - brew link bdw-gc
         - brew install re2
 
-
-cache:
-  directories:
-    - $HOME/.ivy2/cache
-
 script:
   - java -version
-  - sbt 'clean' 'nativeLink'
+  - sbt g8Test

@@ -1,3 +1,4 @@
-enablePlugins(ScalaNativePlugin)
-
-scalaVersion := "2.11.11"
+lazy val root = project.in(file("."))
+  .settings(
+    g8TestScript := (baseDirectory in ThisBuild).value / "test"
+  )
