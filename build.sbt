@@ -1,4 +1,4 @@
 lazy val root = project.in(file("."))
   .settings(
-    g8TestScript := (baseDirectory in ThisBuild).value / "test"
+    resolvers += Resolver.url("typesafe", url("http://repo.typesafe.com/typesafe/ivy-releases/"))(Resolver.ivyStylePatterns)
   )
