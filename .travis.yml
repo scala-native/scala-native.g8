@@ -54,6 +54,9 @@ matrix:
         - brew link bdw-gc
         - brew install re2
 
+before_script:
+  - sudo chmod +x /usr/local/bin/sbt
+
 script:
   - java -version
   - sbt g8Test
