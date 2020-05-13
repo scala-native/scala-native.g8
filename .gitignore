@@ -1,2 +1,4 @@
+# IDE related
 project/metals.sbt
-
+/.bloop
+/.metals
