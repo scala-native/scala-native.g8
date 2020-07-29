@@ -1,0 +1,7 @@
+# Metals
+project/metals.sbt
+/.bloop
+/.metals
+
+# IntelliJ
+/.idea
