@@ -1,3 +1,9 @@
+# Target
+target
+
+# BSP
+.bsp
+
 # Metals
 project/metals.sbt
 /.bloop
