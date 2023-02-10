@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04, macos-11]
+        java: [ '17' ]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout current branch (full)
+      uses: actions/checkout@v3
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+          distribution: 'adopt'
+          java-version: ${{ matrix.java }}
+          cache: 'sbt'
+    - name: Run tests (${{ matrix.os }}) Java ${{ matrix.java }}
+      run: sbt g8Test

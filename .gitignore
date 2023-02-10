@@ -5,9 +5,10 @@ target
 .bsp
 
 # Metals
-project/metals.sbt
+/project/**/metals.sbt
 /.bloop
 /.metals
 
-# IntelliJ
+# IDEs
 /.idea
+/.vscode
