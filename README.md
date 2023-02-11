@@ -1,4 +1,5 @@
 This is a minimal [Giter8][g8] template for Scala Native
+![CI](https://github.com/scala-native/scala-native.g8/workflows/CI/badge.svg)
 
 ```
 sbt new scala-native/scala-native.g8
