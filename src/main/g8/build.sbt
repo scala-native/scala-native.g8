@@ -1,4 +1,4 @@
-scalaVersion := "3.3.3" // A Long Term Support version.
+scalaVersion := "3.3.5" // A Long Term Support version.
 
 enablePlugins(ScalaNativePlugin)
 
@@ -10,7 +10,7 @@ import scala.scalanative.build._
 
 // defaults set with common options shown
 nativeConfig ~= { c =>
-  c.withLTO(LTO.none) // thin
-    .withMode(Mode.debug) // releaseFast
-    .withGC(GC.immix) // commix
+  c.withSourceLevelDebuggingConfig(
+    SourceLevelDebuggingConfig.enabled
+  ) // enable rich stacktraces
 }
