@@ -18,7 +18,7 @@ As an alternative, you can use [scala-cli](https://scala-cli.virtuslab.org/).
 
 ## License
 -------
-Created by [EPFL](https://www.epfl.ch/labs/lamp/): 2017-2023
+Created by [EPFL](https://www.epfl.ch/labs/lamp/): 2017-2025
 
 To the extent possible under law, the author(s) have dedicated all copyright and related and neighboring rights to this template to the public domain worldwide. This template is distributed without any warranty. See <http://creativecommons.org/publicdomain/zero/1.0/>.
 
