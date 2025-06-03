@@ -19,7 +19,7 @@ jobs:
     - name: Setup Java
       uses: actions/setup-java@v4
       with:
-          distribution: 'zulu'
+          distribution: 'adopt'
           java-version: ${{ matrix.java }}
           cache: 'sbt'
     - name: Install common dependencies
