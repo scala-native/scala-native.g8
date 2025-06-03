@@ -24,6 +24,7 @@ jobs:
           cache: 'sbt'
     - name: Install common dependencies
       shell: bash
+      if: ${{ startsWith(matrix.os, 'macos') }}
       run: brew install sbt
     - name: Run tests (${{ matrix.os }}) Java ${{ matrix.java }}
       run: sbt g8Test
