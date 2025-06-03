@@ -22,5 +22,8 @@ jobs:
           distribution: 'zulu'
           java-version: ${{ matrix.java }}
           cache: 'sbt'
+    - name: Install common dependencies
+      shell: bash
+      run: brew install sbt
     - name: Run tests (${{ matrix.os }}) Java ${{ matrix.java }}
       run: sbt g8Test
