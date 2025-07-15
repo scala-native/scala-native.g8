@@ -1,3 +1,3 @@
-scalaVersion := "3.1.3"
+scalaVersion := "3.3.7" // A Long Term Support version.
 
 enablePlugins(ScalaNativePlugin)

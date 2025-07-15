@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, macos-15]
+        java: [ '25' ]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout current branch (full)
+      uses: actions/checkout@v6
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+          distribution: 'adopt'
+          java-version: ${{ matrix.java }}
+          cache: 'sbt'
+    - name: Install common dependencies
+      shell: bash
+      if: ${{ startsWith(matrix.os, 'macos') }}
+      run: brew install sbt
+    - name: Run tests (${{ matrix.os }}) Java ${{ matrix.java }}
+      run: sbt g8Test
