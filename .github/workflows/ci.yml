@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-22.04, macos-13]
-        java: [ '17' ]
+        java: [ '21' ]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout current branch (full)
@@ -22,5 +22,9 @@ jobs:
           distribution: 'adopt'
           java-version: ${{ matrix.java }}
           cache: 'sbt'
+    - name: Install common dependencies
+      shell: bash
+      if: ${{ startsWith(matrix.os, 'macos') }}
+      run: brew install sbt
     - name: Run tests (${{ matrix.os }}) Java ${{ matrix.java }}
       run: sbt g8Test
